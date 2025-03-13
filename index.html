@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tarjeta de Presentación</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            background-image: url("assets/bgPage.png");
+            background-size: cover;
+            background-position: right;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            margin-left: 40px;
+            border-radius: 10px;
+            width: 50%;
+            height: 75%;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .card h1 {
+            font-weight: 300;
+            font-size: 4rem;
+            margin: 10px 0 5px;
+        }
+
+        .card p {
+            font-weight: 200;
+            font-size: 1.325rem;
+            margin: 0 0 15px;
+        }
+
+        .card b {
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            font-weight: 500;
+        }
+
+        button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 18px;
+            transition: 0.3s ease-in-out;
+            width: 13rem;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            width: 79%;
+        }
+
+        .icons {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+        }
+
+        img {
+            width: 2.5rem;
+        }
+
+        .proyectos {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            width: 35%;
+            height: 75%;
+            text-align: center;
+            margin-right: 1rem;
+
+            h1 {
+                font-weight: 400;
+            }
+        }
+
+        .carruselPE {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cpe {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .cpe-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+
+            img {
+                width: 65%;
+                height: auto;
+            }
+
+            h2 {
+                font-weight: 600;
+            }
+
+            a {
+                color: white;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+
+        .cpe-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .cpe-button {
+            font-weight: 100;
+            background-color: white;
+            width: 12%;
+            height: 8%;
+            color: black;
+            border: 1px solid white;
+            border-radius: 18px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cpe-button:hover {
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 80px;
+            right: 150px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 100;
+            cursor: pointer;
+            text-align: center;
+            width: 50px;
+        }
+
+        .close-button:hover {
+            transform: scale(0.8);
+            background-color: transparent;
+            color: white;
+        }
+
+        .carruselPP {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cpp {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .cpp-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+
+            img {
+                width: 65%;
+                height: auto;
+            }
+
+            h2 {
+                font-weight: 600;
+            }
+
+            a {
+                color: white;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+
+        .cpp-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .cpp-button {
+            font-weight: 100;
+            background-color: white;
+            width: 12%;
+            height: 8%;
+            color: black;
+            border: 1px solid white;
+            border-radius: 18px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cpp-button:hover {
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+
+        <h1><b>Jairo</b> Jafet <br> Alvarado <b>Martinez</b></h1>
+        <p>Ing. en Tecnologías de la Información y Comunicaciones</p>
+
+        <br><br>
+
+        <h2>Portafolio de proyectos</h2>
+
+        <section>
+            <button onclick="showProyectos('proyectosE')">Proyectos escolares</button>
+            <button onclick="showProyectos('proyectosP')">Proyectos personales</button>
+        </section>
+
+        <br><br><br><br><br><br>
+
+        <section class="icons">
+            <a href="https://github.com/JairoMtz28" target="_blank"><img src="assets/github.png" alt="GitHub"></a>
+            <a href="https://www.instagram.com/gonajont?igsh=MXF4NjZuMnUzZTl4eA==" target="_blank"><img
+                    src="assets/instagram.png" alt="GitHub"></a>
+            <a href="https://www.facebook.com/share/1A4paxvLwa/?mibextid=qi2Omg" target="_blank"><img
+                    src="assets/facebook.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/jairo-jafet-alvarado-martinez-12bb94353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"><img src="assets/linkedin.png" alt="GitHub"></a>
+        </section>
+    </div>
+
+    <div class="proyectos" id="proyectosE">
+        <button class="close-button" onclick="closeProyectos('proyectosE')">✕</button>
+        <h1>Proyectos escolares</h1>
+
+        <div class="carruselPE">
+            <div class="cpe">
+                <div class="cpe-item">
+                    <a href="https://github.com/UlisesRS1/PayKawaii/" target="_blank">
+                        <h2>PayKawaii</h2>
+                    </a>
+                    <p>Página web desarrollada como parte de un proyecto académico para uno de los emprendimientos de
+                        nuestra escuela.</p>
+                    <a href="https://github.com/UlisesRS1/PayKawaii/" target="_blank"><img
+                            src="https://raw.githubusercontent.com/UlisesRS1/PayKawaii/refs/heads/main/img/Paykawaii.jpeg"
+                            alt="PayKawaii"></a>
+
+                    <a href="https://github.com/UlisesRS1/PayKawaii/" target="_blank">
+                        <h5>Abrir en GitHub</h5>
+                    </a>
+                </div>
+
+                
+
+            </div>
+
+            <div class="cpe-controls">
+                <button class="cpe-button" id="preve">&#10094;</button>
+                <button class="cpe-button" id="nexte">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="proyectos" id="proyectosP">
+        <button class="close-button" onclick="closeProyectos('proyectosP')">✕</button>
+        <h1>Proyectos personales</h1>
+
+        <div class="carruselPP">
+            <div class="cpp">
+                <div class="cpp-item">
+                    <a href="https://github.com/JairoMtz28/EnchantedBook" target="_blank">
+                        <h2>EnchantedBook</h2>
+                    </a>
+                    <p>Proyecto de aplicación móvil desarrollado en Ionic, el cual sirve como una guía para conocer los encantamientos existentes en Minecraft.</p>
+                    <a href="https://github.com/JairoMtz28/EnchantedBook" target="_blank"><img
+                            src="https://trbl-services.eu/wp-content/uploads/2018/06/ionic-1.png"
+                            alt="EnchantedBook"></a>
+
+                    <a href="https://github.com/JairoMtz28/EnchantedBook" target="_blank">
+                        <h5>Abrir en GitHub</h5>
+                    </a>
+                </div>
+
+                
+
+            </div>
+
+            <div class="cpp-controls">
+                <button class="cpp-button" id="prevp">&#10094;</button>
+                <button class="cpp-button" id="nextp">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeProyectos(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function showProyectos(id) {
+            document.getElementById("proyectosE").style.display = "none";
+            document.getElementById("proyectosP").style.display = "none";
+            document.getElementById(id).style.display = "block";
+        }
+
+        const cpe = document.querySelector('.cpe');
+        const prevButtonE = document.getElementById('preve');
+        const nextButtonE = document.getElementById('nexte');
+        let currentIndexE = 0;
+
+        const updatecpe = () => {
+            cpe.style.transform = `translateX(-${currentIndexE * 100}%)`;
+        };
+
+        prevButtonE.addEventListener('click', () => {
+            if (currentIndexE > 0) {
+                currentIndexE--;
+            } else {
+                currentIndexE = cpe.children.length - 1;
+            }
+            updatecpe();
+        });
+
+        nextButtonE.addEventListener('click', () => {
+            if (currentIndexE < cpe.children.length - 1) {
+                currentIndexE++;
+            } else {
+                currentIndexE = 0;
+            }
+            updatecpe();
+        });
+
+
+        const cpp = document.querySelector('.cpp');
+        const prevButtonP = document.getElementById('prevp');
+        const nextButtonP = document.getElementById('nextp');
+        let currentIndexP = 0;
+
+        const updatecpp = () => {
+            cpp.style.transform = `translateX(-${currentIndexP * 100}%)`;
+        };
+
+        prevButtonP.addEventListener('click', () => {
+            if (currentIndexP > 0) {
+                currentIndexP--;
+            } else {
+                currentIndexP = cpp.children.length - 1;
+            }
+            updatecpp();
+        });
+
+        nextButtonP.addEventListener('click', () => {
+            if (currentIndexP < cpp.children.length - 1) {
+                currentIndexP++;
+            } else {
+                currentIndexP = 0;
+            }
+            updatecpp();
+        });
+
+    </script>
+</body>
+
+</html>
