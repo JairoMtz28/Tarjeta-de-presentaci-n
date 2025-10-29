@@ -258,11 +258,35 @@
     /* ====== CONTACTO ====== */
     .contact {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .contact p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
       color: #475569;
       margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .contact img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+    }
+
+    .contact a {
+      color: #475569;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -402,53 +426,61 @@
 
     <div class="projects">
 
-      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/JC-Nutrition', '_blank');"
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/JC-Nutrition', '_blank');"
         style="cursor: pointer;">
-        <img src="https://raw.githubusercontent.com/JairoMtz28/JC-Nutrition/refs/heads/main/resources/splash.png" alt="JC Nutrition">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/JC-Nutrition/refs/heads/main/resources/splash.png"
+          alt="JC Nutrition">
         <div class="content">
           <h4>JC Nutrition</h4>
-          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un
+            nutriólogo a gestionar sus pacientes de manera sencilla.
           </p>
         </div>
       </div>
 
-      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/CuttingOrders', '_blank');"
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/CuttingOrders', '_blank');"
         style="cursor: pointer;">
-        <img src="https://raw.githubusercontent.com/JairoMtz28/CuttingOrders/refs/heads/main/CuttingOrders.png" alt="CuttingOrders">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/CuttingOrders/refs/heads/main/CuttingOrders.png"
+          alt="CuttingOrders">
         <div class="content">
           <h4>CuttingOrders</h4>
           <p>
-            Programa desarrollado en Visual Studio utilizando Windows Forms, programación en Visual Basic y consultas SQL para gestionar las órdenes de corte de distintas máquinas en un entorno de producción.
+            Programa desarrollado en Visual Studio utilizando Windows Forms, programación en Visual Basic y consultas
+            SQL para gestionar las órdenes de corte de distintas máquinas en un entorno de producción.
           </p>
         </div>
       </div>
 
-      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/FormatosCorte', '_blank');"
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/FormatosCorte', '_blank');"
         style="cursor: pointer;">
-        <img src="https://raw.githubusercontent.com/JairoMtz28/FormatosCorte/refs/heads/main/FormatosCorte.png" alt="FormatosCorte">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/FormatosCorte/refs/heads/main/FormatosCorte.png"
+          alt="FormatosCorte">
         <div class="content">
           <h4>FormatosCorte</h4>
-          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un
+            nutriólogo a gestionar sus pacientes de manera sencilla.
           </p>
         </div>
       </div>
 
-      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/ReworkPW', '_blank');"
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/ReworkPW', '_blank');"
         style="cursor: pointer;">
         <img src="https://raw.githubusercontent.com/JairoMtz28/ReworkPW/refs/heads/main/ReworkPW.png" alt="ReworkPW">
         <div class="content">
           <h4>ReworkPW (Colaborativo)</h4>
-          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un
+            nutriólogo a gestionar sus pacientes de manera sencilla.
           </p>
         </div>
       </div>
 
-      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/QRGen', '_blank');"
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/QRGen', '_blank');"
         style="cursor: pointer;">
         <img src="https://raw.githubusercontent.com/JairoMtz28/QRGen/refs/heads/main/QRGen.png" alt="QRGen">
         <div class="content">
           <h4>QRGen (Colaborativo)</h4>
-          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un
+            nutriólogo a gestionar sus pacientes de manera sencilla.
           </p>
         </div>
       </div>
@@ -478,7 +510,8 @@
           alt="ListaDeCompras">
         <div class="content">
           <h4>ListaDeCompras (Colaborativo)</h4>
-          <p>Aplicación móvil pensada para que el usuario pueda crear recordatorios acerca de cosas de primera necesidad que requiera comprar y realizar presupuestos personales.
+          <p>Aplicación móvil pensada para que el usuario pueda crear recordatorios acerca de cosas de primera necesidad
+            que requiera comprar y realizar presupuestos personales.
           </p>
         </div>
       </div>
@@ -525,12 +558,14 @@
         </div>
       </div>
 
-      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/NuestroLibroDeRecuerdos', '_blank');"
+      <div class="project-card"
+        onclick="window.open('https://github.com/JairoMtz28/NuestroLibroDeRecuerdos', '_blank');"
         style="cursor: pointer;">
         <img src="https://trbl-services.eu/wp-content/uploads/2018/06/ionic-1.png" alt="NuestroLibroDeRecuerdos">
         <div class="content">
           <h4>NuestroLibroDeRecuerdos</h4>
-          <p>Proyecto de aplicación móvil desarrollado en Ionic, pensado para ser utilizado por parejas que deseen guardar recuerdos con gran valor sentimental.
+          <p>Proyecto de aplicación móvil desarrollado en Ionic, pensado para ser utilizado por parejas que deseen
+            guardar recuerdos con gran valor sentimental.
           </p>
         </div>
       </div>
@@ -540,7 +575,8 @@
         <img src="https://trbl-services.eu/wp-content/uploads/2018/06/ionic-1.png" alt="EnchantedBook">
         <div class="content">
           <h4>EnchantedBook</h4>
-          <p>Proyecto de aplicación móvil desarrollado en Ionic, el cual sirve como una guía de videojuegos para conocer los encantamientos existentes en Minecraft.
+          <p>Proyecto de aplicación móvil desarrollado en Ionic, el cual sirve como una guía de videojuegos para conocer
+            los encantamientos existentes en Minecraft.
           </p>
         </div>
       </div>
@@ -572,10 +608,16 @@
   <section id="contact">
     <h3>Contacto</h3>
     <div class="contact">
-      <p><a target="_blank" href="mailto:alvaradomartinezjairojafet@gmail.com">alvaradomartinezjairojafet@gmail.com</a>
+      <p><img src="assets/icons8-gmail-nuevo-480.png" alt="gmail"><a target="_blank"
+          href="mailto:alvaradomartinezjairojafet@gmail.com">alvaradomartinezjairojafet@gmail.com</a>
       </p>
-      <p><a target="_blank" href="https://www.linkedin.com/in/jairo-jafet-alvarado-martinez">Linkedin</a></p>
-      <p><a target="_blank" href="https://github.com/JairoMtz28">GitHub</a></p>
+      <p><img src="assets/icons8-facebook-nuevo-480.png" alt="Facebook"><a target="_blank"
+          href="https://www.facebook.com/share/1FWb5UKw8N/">Jairo Martinez</a>
+      </p>
+      <p><img src="assets/icons8-linkedin-480.png" alt=""><a target="_blank"
+          href="https://www.linkedin.com/in/jairo-jafet-alvarado-martinez">Jairo Jafet Alvarado Martinez</a></p>
+      <p><img src="assets/icons8-github-480.png" alt="GitHub"><a target="_blank"
+          href="https://github.com/JairoMtz28">JairoMtz28</a></p>
       <p></p>
     </div>
   </section>
