@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio de proyectos</title>
+  <style>
+    /* ====== ESTILOS GENERALES ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9fafb;
+      color: #1e293b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ====== NAVBAR ====== */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    nav h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2563eb;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #2563eb;
+    }
+
+    /* ====== MENU HAMBURGUESA ====== */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      position: relative;
+      z-index: 100;
+      /* Menor que el menú para que quede detrás */
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #2563eb;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ====== BOTÓN CERRAR (X) ====== */
+    .close-btn {
+      display: none;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2563eb;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #e0f2fe, #f9fafb);
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #0f172a;
+    }
+
+    .hero p {
+      margin: 1rem 0;
+      max-width: 600px;
+      color: #475569;
+    }
+
+    .hero button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .hero button:hover {
+      background: #1d4ed8;
+      transform: scale(1.03);
+    }
+
+    /* ====== SECCIONES ====== */
+    section {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    section h3::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #2563eb;
+      border-radius: 2px;
+    }
+
+    /* ====== SOBRE MÍ ====== */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about img {
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+    }
+
+    .about p {
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* ====== PROYECTOS ====== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+    }
+
+    .project-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-card .content {
+      padding: 1rem;
+    }
+
+    .project-card h4 {
+      color: #2563eb;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* ====== HABILIDADES ====== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill {
+      background: #e0f2fe;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      color: #1e40af;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .skill:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    /* ====== CONTACTO ====== */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #475569;
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      color: #475569;
+    }
+
+    /* ====== MEDIA QUERIES ====== */
+    @media (max-width: 900px) {
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: #ffffff;
+        width: 70%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        border-left: 1px solid #e2e8f0;
+        transition: right 0.3s ease;
+        z-index: 200;
+        /* Menú por encima del botón */
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .close-btn {
+        display: block;
+      }
+
+      li a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        padding-bottom: 35px;
+      }
+
+      li a::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 125%;
+        height: 3px;
+        background-color: #2563eb;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        margin: 4rem auto;
+        padding: 0 1rem;
+      }
+
+      nav {
+        padding: 1rem;
+      }
+
+      .project-card img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <header>
+    <nav>
+      <h1>Portafolio de proyectos</h1>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul id="menu">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <h2>Jairo Jafet Alvarado Martinez <span style="color:#2563eb;"><br>Ing. en Tecnologías de la Información y
+        Comunicaciones</span></h2>
+    <p>Recién egresado, en busca de una oportunidad laboral que me permita desarrollar, aplicar y ampliar mis
+      conocimientos en
+      entornos profesionales.</p>
+    <button onclick="window.location.href='#projects'">Mis proyectos</button>
+  </section>
+
+  <!-- ====== SOBRE MÍ ====== -->
+  <section id="about">
+    <h3>Sobre mí</h3>
+    <div class="about">
+      <img src="/assets/foto-perfil.jpg" alt="Foto de perfil">
+      <p>
+        Egresado de la carrera de Ingeniería en Tecnologías de la Información y Comunicaciones por el Instituto
+        Tecnológico Superior de Salvatierra, con interés en mi crecimiento y desarrollo profesional dentro del área
+        tecnológica. Poseo conocimientos sólidos en programación, desarrollo de software, administración de bases de
+        datos, redes y electrónica. Me apasiona especialmente el desarrollo móvil y web, tanto en el frontend como en el
+        backend.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== PROYECTOS ====== -->
+  <section id="projects">
+    <h3>Proyectos</h3>
+    <h2>Proyectos profesionales</h2><br>
+
+    <div class="projects">
+
+      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/JC-Nutrition', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/JC-Nutrition/refs/heads/main/resources/splash.png" alt="JC Nutrition">
+        <div class="content">
+          <h4>JC Nutrition</h4>
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/CuttingOrders', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/CuttingOrders/refs/heads/main/CuttingOrders.png" alt="CuttingOrders">
+        <div class="content">
+          <h4>CuttingOrders</h4>
+          <p>
+            Programa desarrollado en Visual Studio utilizando Windows Forms, programación en Visual Basic y consultas SQL para gestionar las órdenes de corte de distintas máquinas en un entorno de producción.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/FormatosCorte', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/FormatosCorte/refs/heads/main/FormatosCorte.png" alt="FormatosCorte">
+        <div class="content">
+          <h4>FormatosCorte</h4>
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/ReworkPW', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/ReworkPW/refs/heads/main/ReworkPW.png" alt="ReworkPW">
+        <div class="content">
+          <h4>ReworkPW (Colaborativo)</h4>
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card"  onclick="window.open('https://github.com/JairoMtz28/QRGen', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/QRGen/refs/heads/main/QRGen.png" alt="QRGen">
+        <div class="content">
+          <h4>QRGen (Colaborativo)</h4>
+          <p>Aplicación móvil múltiplataforma (Android / iOS) desarrollada con Ionic y Angular hecha para ayudar a un nutriólogo a gestionar sus pacientes de manera sencilla.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <h2>Proyectos escolares</h2><br>
+    <div class="projects">
+
+      <div class="project-card" onclick="window.open('https://github.com/UlisesRS1/PayKawaii/', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/UlisesRS1/PayKawaii/refs/heads/main/img/Paykawaii.jpeg"
+          alt="PayKawaii">
+        <div class="content">
+          <h4>PayKawaii (Colaborativo)</h4>
+          <p>Página web desarrollada como parte de un proyecto académico para uno de los emprendimientos de nuestra
+            escuela.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/ListaDeCompras.git', '_blank');"
+        style="cursor: pointer;">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png"
+          alt="ListaDeCompras">
+        <div class="content">
+          <h4>ListaDeCompras (Colaborativo)</h4>
+          <p>Aplicación móvil pensada para que el usuario pueda crear recordatorios acerca de cosas de primera necesidad que requiera comprar y realizar presupuestos personales.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/Calculadora-M-ltiple', '_blank');"
+        style="cursor: pointer;">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png"
+          alt="Calculadora Múltiple">
+        <div class="content">
+          <h4>Calculadora Múltiple</h4>
+          <p>Aplicación móvil desarrollada en Android Studio que realiza operaciones básicas con dos números.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/Calculadora-Spinner', '_blank');"
+        style="cursor: pointer;">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png"
+          alt="Calculadora Spinner">
+        <div class="content">
+          <h4>Calculadora Spinner</h4>
+          <p>Aplicación móvil desarrollada en Android Studio que realiza operaciones básicas utilizando un selector de
+            lista.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <h2>Proyectos personales</h2><br>
+
+    <div class="projects">
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/Mevadent', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://raw.githubusercontent.com/JairoMtz28/Mevadent/refs/heads/main/src/logo.jpg" alt="Mevadent">
+        <div class="content">
+          <h4>Mevadent</h4>
+          <p>Aplicación web desarrollada con PHP y MySQL para administrar existencias, compras y ventas en tiempo real.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/NuestroLibroDeRecuerdos', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://trbl-services.eu/wp-content/uploads/2018/06/ionic-1.png" alt="NuestroLibroDeRecuerdos">
+        <div class="content">
+          <h4>NuestroLibroDeRecuerdos</h4>
+          <p>Proyecto de aplicación móvil desarrollado en Ionic, pensado para ser utilizado por parejas que deseen guardar recuerdos con gran valor sentimental.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="window.open('https://github.com/JairoMtz28/EnchantedBook', '_blank');"
+        style="cursor: pointer;">
+        <img src="https://trbl-services.eu/wp-content/uploads/2018/06/ionic-1.png" alt="EnchantedBook">
+        <div class="content">
+          <h4>EnchantedBook</h4>
+          <p>Proyecto de aplicación móvil desarrollado en Ionic, el cual sirve como una guía de videojuegos para conocer los encantamientos existentes en Minecraft.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== HABILIDADES ====== -->
+  <section id="skills">
+    <h3>Habilidades</h3>
+    <div class="skills">
+      <span class="skill">Java</span>
+      <span class="skill">Visual Basic</span>
+      <span class="skill">HTML5</span>
+      <span class="skill">CSS3</span>
+      <span class="skill">TypeScript</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">Angular / Ionic</span>
+      <span class="skill">React</span>
+      <span class="skill">MySQL</span>
+      <span class="skill">Firebase / Firestore</span>
+      <span class="skill">.NET</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Git / GitHub</span>
+    </div>
+  </section>
+
+  <!-- ====== CONTACTO ====== -->
+  <section id="contact">
+    <h3>Contacto</h3>
+    <div class="contact">
+      <p><a target="_blank" href="mailto:alvaradomartinezjairojafet@gmail.com">alvaradomartinezjairojafet@gmail.com</a>
+      </p>
+      <p><a target="_blank" href="https://www.linkedin.com/in/jairo-jafet-alvarado-martinez">Linkedin</a></p>
+      <p><a target="_blank" href="https://github.com/JairoMtz28">GitHub</a></p>
+      <p></p>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    Continuación Zaragoza 6, Santo Tomás Huatzindeo, Salvatierra, Guanajuato. C.P. 38932
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const closeBtn = document.getElementById("close-btn");
+
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+  </script>
+</body>
+
+</html>
